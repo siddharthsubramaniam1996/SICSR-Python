@@ -1,0 +1,210 @@
+file.tell tells u the position of the cursor
+default position is 0
+
+file.seek() sets the cursor position
+
+file.write('thecontent') write the content into the file
+it will not show up on the file till u run file.flush()
+
+_____________________________________________________________
+
+EXCEPTIONS-
+
+try:
+    ...:     print(1 + "1")
+    ...: except Exception as e:
+    ...:     print ("error")
+    ...:     
+e is the object of the exception class
+
+In [15]: try:
+    ...:     print (1+1)
+    ...: except Exception as e:
+    ...:     print ("error occured")
+    ...: finally:
+    ...:     print ("finally executed")
+    ...:     
+2
+finally executed
+
+thus as like in java, the finally block always get executed irrespective of anything else
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+
+the python alternative to java's throw is RAISE
+
+In [18]: try:
+    ...:     raise NameError
+    ...: except NameError:
+    ...:     print ("An error has occured")
+    ...:     
+An error has occured
+
+
+__________________________________________________________________
+OOPS Concepts - 
+
+it is not compulsory to write "object" in the base class but yet it is a good Concept
+
+class A:
+or
+class A object:
+
+both will do 
+the second is better
+
+
+SELF IS NOT A KEYWORD IN PYTHON
+
+In [30]: class A():
+    ...:     def __init__ (self, var):
+    ...:         self.v = var
+    ...:         
+
+In [31]: a = A(10)
+
+In [32]: a.v
+Out[32]: 10
+
+
+init is used to initialise the constructor
+
+
+*arr is used when u wanna initialise multiple parameters
+
+In [39]: class A():
+    ...:     def __init__ (aditya,rana):
+    ...:         aditya.v = rana
+    ...:     def multiVal (self, *arr):
+    ...:         for elem in arr:
+    ...:             print (elem)
+    ...:             
+
+
+In [40]: a.multiVal(1,2,3)
+1
+2
+3
+
+In [41]: a.multiVal(1,(2,3))
+1
+(2, 3)
+
+In [42]: a.multiVal(1,(2,3),(10.10))
+1
+(2, 3)
+10.1
+
+
+
+
+=-=-=-=-=-=-=-=-=-=-==
+[to be edited later]
+
+In [45]: class A():
+    ...:     def __init__ (aditya,rana):
+    ...:         aditya.v = rana
+    ...:     def multiVal (self, **arr):
+    ...:         for elem in arr:
+    ...:             print ('%s == %s' %  key,value)
+    ...:             
+
+In [46]: a.multiVal ('k1 = val1')
+k1 = val1
+
+
+
+
+_____________________________________________________________
+inheritance
+
+In [50]: class Parent():
+    ...:     def __init__ (self, name):
+    ...:         self.name = name
+    ...:         
+
+In [51]: class Child(Parent):
+    ...:     def __init__(self, name, lastname):
+    ...:         super(). __init__(name)
+    ...:         self.lastname = lastname
+    ...:         
+
+In [52]: ch = Child ('siddharth','subramaniam')
+
+-=-=-=-=--=-=-==-=-=-=-=-=-=-=-
+
+overriding:
+In [59]: class Parent():
+    ...:     def __init__(self,name):
+    ...:         self.name = name
+    ...:     def myFunc(self):
+    ...:         print("in parent")
+    ...:         
+
+In [60]: class Child(Parent):
+    ...:     age = 22
+    ...:     def __init__(self,name,lastname):
+    ...:         super().__init__(name)
+    ...:         self.lastname = lastname
+    ...:     def myFunc(self):
+    ...:         print("in child")
+    ...:         
+
+In [61]: ch1 = Child ("siddharth", "Subramaniam")
+
+
+-=-==-=-=-
+there is no default overloading in python
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+
+
+In [67]: def add(*arr):
+    ...:     total = 0
+    ...:     for a in arr:
+    ...:         total+=a
+    ...:     print(total)
+    ...:     
+    ...:         
+
+In [68]: add (1,2)
+3
+
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+
+SQLITE3
+
+rows =  cursor.fetchall()
+
+for row in rows:
+    print(row)
+    
+this will print all of the data 
+the fetchall function is used to fetch all the data from the table
+it also has fetch(1) or fetch(2) and so on to show only specific rows
+
+
+here, the cursor object i.e rows is also a buffer
+once printed/outputted, it no longer gives an output
+
+
+__________________________________________________________________
+
+
+
+re.search is the same as re.findall
+
+but re.search returns a match object
+
+match =  re,search('[0-9]*','121121')
+match.group
+output : 121121
+
+re.findall('[0-9]*','121121')
+output : each element is printed individually
+
+
+
+
+
+
+
+
